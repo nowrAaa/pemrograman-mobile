@@ -1,4 +1,4 @@
-**Nama:** Nayla Annora  
+**Nama:** Nayla Annora Nobel Widyonarko
 **NIM:** 244107060148
 
 ## Soal 2
