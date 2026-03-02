@@ -1,0 +1,26 @@
+void main() {
+  String nama = "Nayla Annora Nobel Widyonarko";
+  String nim = "244107060148";
+
+  for (int i = 0; i <= 201; i++) {
+    bool isPrima = true;
+
+    if (i < 2) {
+      isPrima = false;
+    } else {
+      for (int j = 2; j <= i ~/ 2; j++) {
+        if (i % j == 0) {
+          isPrima = false;
+          break;
+        }
+      }
+    }
+
+    if (isPrima) {
+      print("$i adalah bilangan prima");
+      print("Nama: $nama");
+      print("NIM: $nim");
+      print("-----------------------");
+    }
+  }
+}
