@@ -108,7 +108,7 @@ return MaterialApp(
     );
 ```
 
-![Output Langkah 1](images/prak5/output2.jpeg)
+![Output Langkah 2](images/prak5/output2.jpeg)
 
 ### Langkah 3: Scaffold Widget 
 ```dart
@@ -187,6 +187,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
+
+![Output Langkah 3](images/prak5/output3.1.jpeg)
+![Output Langkah 3](images/prak5/output3.2.jpeg)
+
 
 ### Langkah 4 :
 ```dart
