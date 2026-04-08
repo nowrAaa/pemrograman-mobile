@@ -9,15 +9,15 @@
 | Kelas   | SIB-2E                  |
 
 ---
-## Praktikum 3
+## Praktikum 3 : Membuat Repository GitHub dan Laporan Praktikum
 
 Langkah 12
 
 ![Screenshoot helo_world](images/prak3/01.jpeg) 
 
-## Praktikum 4
+## Praktikum 4 : Menerapkan Widget Dasar
 
-### Langkah 1 
+### Langkah 1 : Text Widget
 ```dart
 import 'package:flutter/material.dart';
 
@@ -43,7 +43,7 @@ import 'basic_widgets/text_widget.dart';
 
 ![Output Langkah 1](images/prak4/output1.png)
 
-### Langkah 2
+### Langkah 2 : Image Widget
 ```dart
 import 'package:flutter/material.dart';
 
@@ -68,10 +68,11 @@ import 'basic_widgets/images_widget.dart';
 ```
 
 ![Output Langkah 2](images/prak4/output2.png)
+![Output Langkah 2](images/prak4/output_hp.jpeg)
 
-## Praktikum 5
+## Praktikum 5 : Menerapkan Widget Material Design dan iOS Cupertino
 
-### Langkah 1
+### Langkah 1 : Cupertino Button dan Loading Bar
 ```dart
 return MaterialApp(
       home: Container(
@@ -90,8 +91,25 @@ return MaterialApp(
     );
 ```
 
+### Langkah 2 : Floating Action Button (FAB)
+```dart
+return MaterialApp(
+      home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Add your onPressed code here!
+          },
+          child: const Icon(Icons.thumb_up),
+          backgroundColor: Colors.pink,
+        ),
+      ),
+    );
+```
 
+### Langkah 3: Scaffold Widget 
+```dart
 
+```
 
 
 
