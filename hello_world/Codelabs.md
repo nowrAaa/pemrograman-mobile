@@ -132,3 +132,268 @@ Di bagian bawah lib/main.dart, tambahkan sesuatu pada string di objek Text perta
 ```
 
 ![Output](codelabs_img/bagian4/debug2.jpeg)
+
+### Menambahkan tombol
+
+Berikutnya, tambahkan tombol di bagian bawah Column, tepat di bawah instance Text kedua
+```dart
+// ...
+
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('A random AWESOME idea:'),
+          Text(appState.current.asLowerCase),
+
+          // ↓ Add this.
+          ElevatedButton(
+            onPressed: () {
+              print('button pressed!');
+            },
+            child: Text('Next'),
+          ),
+
+        ],
+      ),
+    );
+
+// ...
+```
+
+![Output](codelabs_img/bagian4/debug3.jpeg)
+
+### Kursus singkat Flutter 5 menit
+
+Perilaku pertama Anda
+
+Scroll ke MyAppState lalu tambahkan metode getNext
+```dart
+// ...
+
+class MyAppState extends ChangeNotifier {
+  var current = WordPair.random();
+
+  // ↓ Add this.
+  void getNext() {
+    current = WordPair.random();
+    notifyListeners();
+  }
+}
+
+// ...
+```
+![Output](codelabs_img/bagian4/callback_tombol.mp4)
+
+## Memperindah tampilan aplikasi
+
+### Mengekstrak widget
+
+Tulis ulang widget MyHomePage sebagai berikut:
+```dart
+// ...
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var pair = appState.current;                 // ← Add this.
+
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('A random AWESOME idea:'),
+          Text(pair.asLowerCase),                // ← Change to this.
+          ElevatedButton(
+            onPressed: () {
+              appState.getNext();
+            },
+            child: Text('Next'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ...
+```
+
+### Menambahkan Kartu
+
+Kode ini menggabungkan widget Padding, dan juga Text, dengan widget Card.
+
+![Code](codelabs_img/bagian5/code_padding.png)
+
+![Output](codelabs_img/bagian5/padding.jpeg)
+
+#### Tema dan gaya
+
+Buat perubahan berikut untuk metode build() BigCard.
+```dart
+// ...
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);       // ← Add this.
+
+    return Card(
+      color: theme.colorScheme.primary,    // ← And also this.
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Text(pair.asLowerCase),
+      ),
+    );
+  }
+
+// ...
+```
+
+Kini, kartu telah diwarnai dengan warna primer aplikasi:
+
+![Output](codelabs_img/bagian5/theme.jpeg)
+
+### TextTheme
+
+Buat perubahan berikut pada metode build() BigCard.
+```dart
+// ...
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    // ↓ Add this.
+    final style = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+    );
+
+    return Card(
+      color: theme.colorScheme.primary,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        // ↓ Change this line.
+        child: Text(pair.asLowerCase, style: style),
+      ),
+    );
+  }
+
+// ...
+```
+
+![Output](codelabs_img/bagian5/text_theme.jpeg)
+
+### Meningkatkan aksesibilitas
+G
+unakan properti semanticsLabel Text untuk mengganti konten visual widget teks dengan konten semantik yang lebih sesuai untuk pembaca layar:
+```dart
+// ...
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final style = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+    );
+
+    return Card(
+      color: theme.colorScheme.primary,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+
+        // ↓ Make the following change.
+        child: Text(
+          pair.asLowerCase,
+          style: style,
+          semanticsLabel: "${pair.first} ${pair.second}",
+        ),
+      ),
+    );
+  }
+
+// ...
+```
+
+### Menempatkan UI di tengah
+
+Buka metode build() MyHomePage, dan buat perubahan berikut:
+```dart
+// ...
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var pair = appState.current;
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,  // ← Add this.
+        children: [
+          Text('A random AWESOME idea:'),
+          BigCard(pair: pair),
+          ElevatedButton(
+            onPressed: () {
+              appState.getNext();
+            },
+            child: Text('Next'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ...
+```
+
+Tindakan ini menempatkan turunan dalam Column di tengah pada sumbu utamanya (vertikal).
+
+![Output](codelabs_img/bagian5/output.jpeg)
+
+Tampilan center 
+
+![Output](codelabs_img/bagian5/center.jpeg)
+
+Dengan perubahan opsional, MyHomePage mencakup kode berikut:
+```dart
+// ...
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var pair = appState.current;
+
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BigCard(pair: pair),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                appState.getNext();
+              },
+              child: Text('Next'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ...
+```
+
+Aplikasinya akan terlihat seperti berikut:
+
+![Output](codelabs_img/bagian5/center2.jpeg)
+
+
+
+
+
+
+
+
