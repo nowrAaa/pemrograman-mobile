@@ -111,4 +111,4 @@ class MyHomePage extends StatelessWidget {
 
 ### Meluncurkan aplikasi
 
-(codelabs_img\4_debug1.jpeg)
+![Output](codelabs_img\4_debug1.jpeg)
