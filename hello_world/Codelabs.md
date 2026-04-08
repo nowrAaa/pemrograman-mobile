@@ -111,4 +111,24 @@ class MyHomePage extends StatelessWidget {
 
 ### Meluncurkan aplikasi
 
-![Output](codelabs_img\4_debug1.jpeg)
+![Output](codelabs_img/bagian4/debug1.jpeg)
+
+### Hot Reload Pertama
+
+Di bagian bawah lib/main.dart, tambahkan sesuatu pada string di objek Text pertama.
+```dart
+// ...
+
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('A random AWESOME idea:'),  // ← Example change.
+          Text(appState.current.asLowerCase),
+        ],
+      ),
+    );
+
+// ...
+```
+
+![Output](codelabs_img/bagian4/debug2.jpeg)
