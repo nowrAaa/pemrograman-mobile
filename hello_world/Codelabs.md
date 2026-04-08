@@ -464,7 +464,7 @@ class MyHomePage extends StatelessWidget {
 
 UI kembali ke tempat sebelumnya.
 
-![Output](codelabs_img/bagian5/mengembalikan.jpeg)
+![Output](codelabs_img/bagian6/mengembalikan.jpeg)
 
 Berikutnya, tambahkan tombol Like dan hubungkan ke toggleFavorite(). Sebagai tantangan, coba lakukan sendiri untuk pertama kali, tanpa melihat blok kode di bawah.
 ```dart
@@ -523,7 +523,7 @@ class MyHomePage extends StatelessWidget {
 // ...
 ```
 
-![Output](codelabs_img/bagian5/like.jpeg)
+![Output](codelabs_img/bagian6/like.jpeg)
 
 ## Menambahkan kolom samping navigasi
 
@@ -614,7 +614,7 @@ class GeneratorPage extends StatelessWidget {
 // ...
 ```
 
-![Output](codelabs_img/bagian5/homepage.jpeg)
+![Output](codelabs_img/bagian6/homepage.jpeg)
 
 
 
