@@ -794,5 +794,3 @@ class FavoritesPage extends StatelessWidget {
 
 
 
-
-
