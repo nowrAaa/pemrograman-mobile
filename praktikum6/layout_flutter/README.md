@@ -147,12 +147,9 @@ Masukkan teks ke dalam Container dan tambahkan padding di sepanjang setiap tepin
 Widget textSection = Container(
   padding: const EdgeInsets.all(32),
   child: const Text(
-    'Carilah teks di internet yang sesuai '
-    'dengan foto atau tempat wisata yang ingin '
-    'Anda tampilkan. '
-    'Tambahkan nama dan NIM Anda sebagai '
-    'identitas hasil pekerjaan Anda. '
-    'Selamat mengerjakan 🙂.',
+    'Ranu Kumbolo adalah danau kawah (maar) seluas 15 hektar yang terletak di ketinggian 2.400 mdpl di dalam Taman Nasional Bromo Tengger Semeru (TNBTS), Lumajang, Jawa Timur. Dikenal sebagai surga pendaki, danau ini menawarkan pemandangan matahari terbit yang ikonik, menjadi tempat camping favorit di jalur pendakian Gunung Semeru.'
+    
+    'author : Nayla Annora Nobel Widyonarko 244107060148',
     softWrap: true,
   ),
 );
@@ -163,6 +160,30 @@ Widget textSection = Container(
 Tambahkan widget variabel textSection ke dalam body seperti berikut:
 ![](assets/img/prak3/langkah2.png)
 
-![](assets/img/prak3/output_langkah2.png)
+![output](assets/img/prak3/output_langkah2.jpeg)
+
+## Praktikum 4 : Implementasi image section
+
+### Langkah 1 : Siapkan aset gambar
+
+uatlah folder images di root project layout_flutter. Masukkan file gambar tersebut ke folder images, lalu set nama file tersebut ke file pubspec.yaml seperti berikut:
+
+![](assets/img/prak4/langkah1.png)
+
+### Langkah 2 : Tambahkan gambar ke body
+
+Tambahkan aset gambar ke dalam body seperti berikut:
+
+![](assets/img/prak4/langkah2.png)
+
+### Langkah 3: Terakhir, ubah menjadi ListView
+
+Pada langkah terakhir ini, atur semua elemen dalam ListView, bukan Column, karena ListView mendukung scroll yang dinamis saat aplikasi dijalankan pada perangkat yang resolusinya lebih kecil.
+
+![](assets/img/prak4/langkah3.png)
+
+![output](assets/img/prak4/output.jpeg)
+
+
 
 
