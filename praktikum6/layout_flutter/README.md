@@ -134,4 +134,35 @@ Widget buttonSection = Row(
 
 Tambahkan variabel buttonSection ke dalam body seperti berikut:
 
+![](assets/img/prak2langkah3.png)
+
 ![Output](assets/img/prak2/output_langkah3.png)
+
+## Praktikum 3 : Implementasi text section
+
+### Langkah 1 : Buat widget textSection
+
+Masukkan teks ke dalam Container dan tambahkan padding di sepanjang setiap tepinya. Tambahkan kode berikut tepat di bawah deklarasi buttonSection:
+```dart
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: const Text(
+    'Carilah teks di internet yang sesuai '
+    'dengan foto atau tempat wisata yang ingin '
+    'Anda tampilkan. '
+    'Tambahkan nama dan NIM Anda sebagai '
+    'identitas hasil pekerjaan Anda. '
+    'Selamat mengerjakan 🙂.',
+    softWrap: true,
+  ),
+);
+```
+
+### Langkah 2: Tambahkan variabel text section ke body
+
+Tambahkan widget variabel textSection ke dalam body seperti berikut:
+![](assets/img/prak3/langkah2.png)
+
+![](assets/img/prak3/output_langkah2.png)
+
+

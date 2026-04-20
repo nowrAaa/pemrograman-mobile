@@ -58,6 +58,20 @@ class MyApp extends StatelessWidget {
       _buildButtonColumn(color, Icons.share, 'SHARE'),
     ],
   );
+
+  Widget textSection = Container(
+    padding: const EdgeInsets.all(32),
+    child: const Text(
+      'Carilah teks di internet yang sesuai '
+      'dengan foto atau tempat wisata yang ingin '
+      'Anda tampilkan. '
+      'Tambahkan nama dan NIM Anda sebagai '
+      'identitas hasil pekerjaan Anda. '
+      'Selamat mengerjakan 🙂.',
+      softWrap: true,
+    ),
+  );
+  
     return MaterialApp(
       title: 'Flutter layout: Nayla annora nobel widyonarko 244107060148',
       home: Scaffold(
@@ -68,6 +82,7 @@ class MyApp extends StatelessWidget {
             children:[
               titleSection(),
               buttonSection,
+              textSection,
             ], 
         ),
       ),
