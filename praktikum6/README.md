@@ -184,6 +184,99 @@ Pada langkah terakhir ini, atur semua elemen dalam ListView, bukan Column, karen
 
 ![output](assets/img/prak4/output.jpeg)
 
+## Praktikum 5: Membangun Navigasi di Flutter
+
+### Langkah 1: Siapkan project baru
+
+Sebelum melanjutkan praktikum, buatlah sebuah project baru Flutter dengan nama belanja dan susunan folder seperti pada gambar berikut. Penyusunan ini dimaksudkan untuk mengorganisasi kode dan widget yang lebih mudah.
+
+![](assets/img/prak5/langkah1.png)
+
+### Langkah 2: Mendefinisikan Route
+
+Buatlah dua buah file dart dengan nama home_page.dart dan item_page.dart pada folder pages. Untuk masing-masing file, deklarasikan class HomePage pada file home_page.dart dan ItemPage pada item_page.dart. Turunkan class dari StatelessWidget. Gambaran potongan kode dapat anda lihat sebagai berikut.
+
+![](assets/img/prak5/langkah2.png)
+```dart
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    throw UnimplementedError();
+  }
+}
+```
+
+### Langkah 3 : Lengkapi Kode di main.dart
+```dart
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => HomePage(),
+      '/item': (context) => ItemPage(),
+    },
+  ));
+}
+```
+
+### Langkah 4: Membuat data model
+
+Untuk menangani hal ini, buatlah sebuah file dengan nama item.dart dan letakkan pada folder models. Pada file ini didefinisikan pemodelan data yang dibutuhkan. Ilustrasi kode yang dibutuhkan, dapat anda lihat pada potongan kode berikut.
+```dart
+class Item {
+  String name;
+  int price;
+
+  Item({this.name, this.price});
+}
+```
 
 
+### Langkah 5: Lengkapi kode di class HomePage
+
+Pada halaman HomePage terdapat ListView widget. Sumber data ListView diambil dari model List dari object Item. Gambaran kode yang dibutuhkan untuk melakukan definisi model dapat anda lihat sebagai berikut.
+```dart
+class HomePage extends StatelessWidget {
+  final list<Item> items = [
+    Item(name: 'Sugar', price: 5000)
+    Item(name: 'Salt', price: 2000)
+  ];
+}
+```
+
+### Langkah 6: Membuat ListView dan itemBuilder
+```dart
+margin: EdgeInsets.all(8),
+      child: ListView.builder(
+        padding: EdgeInsets.all(8),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return Card(
+            child: Container(
+              margin: EdgeInsets.all(8),
+              child: Row(
+                children: [
+                  Expanded(child: Text(item.name)),
+                  Expanded(
+                    child: Text(
+                      item.price.toString(),
+                      textAlign: TextAlign.end,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  ),
+```
+
+![](assets/img/prak5/output6.jpeg)
+
+### Langkah 7: Menambahkan aksi pada ListView
+
+![](assets/img/prak5/langkah7.png)
 
