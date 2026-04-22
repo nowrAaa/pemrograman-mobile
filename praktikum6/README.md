@@ -280,3 +280,227 @@ margin: EdgeInsets.all(8),
 
 ![](assets/img/prak5/langkah7.png)
 
+![](assets/img/prak5/output6.jpeg)
+
+![](assets/img/prak5/output7.jpeg)
+
+## Tugas Praktikum 2
+
+### Langkah 1 
+
+Untuk melakukan pengiriman data ke halaman berikutnya, cukup menambahkan informasi arguments pada penggunaan Navigator. Perbarui kode pada bagian Navigator menjadi seperti berikut.
+```dart
+Navigator.pushNamed(context, '/item', arguments: item);
+```
+
+### Langkah 2 
+
+Pembacaan nilai yang dikirimkan pada halaman sebelumnya dapat dilakukan menggunakan ModalRoute. Tambahkan kode berikut pada blok fungsi build dalam halaman ItemPage.
+```dart
+final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+```
+
+![](assets/img/tugas2/output2.jpeg)
+
+### Langkah 3
+
+Ubahlah tampilan menjadi GridView seperti di aplikasi marketplace pada umumnya.
+
+Menambahkan assets :
+
+![](assets/img/tugas2/output3.png)
+
+Menambahkan atribut :
+```dart
+class Item {
+  String name;
+  int price;
+  String image;
+  int stock;
+  int rating;
+
+  Item({
+    required this.name, 
+    required this.price, 
+    required this.image, 
+    required this.stock, 
+    required this.rating
+    });
+}
+```
+
+Modifikasi pages/home_page.dart
+```dart
+import 'package:flutter/material.dart';
+import 'package:belanja/models/item.dart';
+
+class ItemPage extends StatelessWidget {
+  const ItemPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Shopping List'),
+      ),
+      body: SingleChildScrollView( // Mencegah error overflow jika layar kecil
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Menampilkan Foto Produk
+            Image.network(
+              itemArgs.image,
+              width: double.infinity,
+              height: 300,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Nama Produk
+                  Text(
+                    itemArgs.name,
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+
+                  // Harga Produk
+                  Text(
+                    'Rp ${itemArgs.price}',
+                    style: const TextStyle(fontSize: 22, color: Colors.deepOrange, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Rating dan Stok
+                  Row(
+                    children: [
+                      const Icon(Icons.star, color: Colors.amber, size: 24),
+                      const SizedBox(width: 4),
+                      Text(
+                        itemArgs.rating.toString(),
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Stok Tersedia: ${itemArgs.stock}',
+                        style: const TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+Modifikasi pages/item_page.dart
+```dart
+class ItemPage extends StatelessWidget {
+  const ItemPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Shopping List'),
+      ),
+      body: SingleChildScrollView( // Mencegah error overflow jika layar kecil
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Menampilkan Foto Produk
+            Image.network(
+              itemArgs.image,
+              width: double.infinity,
+              height: 300,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Nama Produk
+                  Text(
+                    itemArgs.name,
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+
+                  // Harga Produk
+                  Text(
+                    'Rp ${itemArgs.price}',
+                    style: const TextStyle(fontSize: 22, color: Colors.deepOrange, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Rating dan Stok
+                  Row(
+                    children: [
+                      const Icon(Icons.star, color: Colors.amber, size: 24),
+                      const SizedBox(width: 4),
+                      Text(
+                        itemArgs.rating.toString(),
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Stok Tersedia: ${itemArgs.stock}',
+                        style: const TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+### Langkah 4
+
+Silakan implementasikan Hero widget pada aplikasi belanja Anda
+
+Memodifikasi pages/home_page.dart
+```dart
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
+                          child: Hero(
+                            tag: itemArgs.name,
+                            child: Image.network(
+                              itemArgs.image,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      )
+```
+
+Memodifikasi pages/item_page.dart
+
+![](assets/img/tugas2/langkah4.png)
+
+
+
+### Langkah 5
+
+Sesuaikan dan modifikasi tampilan sehingga menjadi aplikasi yang menarik. Selain itu, pecah widget menjadi kode yang lebih kecil. Tambahkan Nama dan NIM di footer aplikasi belanja Anda.
+
+
