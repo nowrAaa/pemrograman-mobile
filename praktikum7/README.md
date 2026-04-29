@@ -80,6 +80,7 @@ Container(
 
 Run aplikasi tersebut dengan tekan F5, maka hasilnya akan seperti berikut.
 
+![](assets/img/prak7/output.jpeg)
 
 ## Praktikum 8 :
 
