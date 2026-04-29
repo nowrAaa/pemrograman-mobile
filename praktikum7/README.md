@@ -79,3 +79,27 @@ Container(
 ```
 
 Run aplikasi tersebut dengan tekan F5, maka hasilnya akan seperti berikut.
+
+
+## Praktikum 8 :
+
+2. Jelaskan maksud dari langkah 2 pada praktikum tersebut!
+
+### Jawaban :
+
+Untuk menampilkan nama plugin beserta versinya di file pubspec.yaml pada bagian dependencies.
+
+3. Jelaskan maksud dari langkah 5 pada praktikum tersebut!
+
+### Jawaban : 
+
+Menambahkan input (parameter) ke widget, supaya widget reusable dan fleksibel, dan mengikuti konsep flutter : UI dibuat dari data (data-driven UI)
+
+4. Pada langkah 6 terdapat dua widget yang ditambahkan, jelaskan fungsi dan perbedaannya!
+
+### Jawaban :
+
+Widget pertama : Untuk menampilkan teks menggunakan RedTextWidget dan teks akan dikirim melalui parameter text.
+
+Widget kedua : Untuk menampilkan teks menggunakan widget bawaan flutter yaitu text
+
