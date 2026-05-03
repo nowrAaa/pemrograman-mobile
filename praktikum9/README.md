@@ -533,7 +533,7 @@ void main() {
 }
 ```
 
-![Output](assets/img/prak2/output.mp4)
+![Output](assets/img/prak2/output.gif)
 
 ### Tugas Praktikum
 3. Jelaskan maksud void async pada praktikum 1?
