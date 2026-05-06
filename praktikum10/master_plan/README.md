@@ -10,6 +10,8 @@
 
 ---
 
+## Praktikum 1: Dasar State dengan Model-View
+
 ### Langkah 1: Buat Project Baru
 
 Buatlah sebuah project flutter baru dengan nama master_plan di folder src week-10 repository GitHub Anda atau sesuai style laporan praktikum yang telah disepakati. Lalu buatlah susunan folder dalam project seperti gambar berikut ini.
@@ -235,3 +237,27 @@ Langkah 14: Hasil
 ![](assets/img/prak1/output2.jpeg)
 
 Lakukan Hot restart (bukan hot reload) pada aplikasi Flutter Anda. Anda akan melihat tampilan akhir seperti gambar berikut. Jika masih terdapat error, silakan diperbaiki hingga bisa running.
+
+### Tugas Praktikum 1: Dasar State dengan Model-View
+
+1. Jelaskan maksud dari langkah 4 pada praktikum tersebut! Mengapa dilakukan demikian?
+
+Jawaban:
+
+Langkah ini menginstruksikan pembuatan file data_layer.dart di dalam folder models. File ini tidak berisi logika pemrograman (seperti class atau fungsi), melainkan hanya berisi pernyataan export. Dengan mengekspor plan.dart dan task.dart, file ini secara efektif "membungkus" kedua model tersebut sehingga dapat diakses melalui satu pintu.
+
+2. Mengapa perlu variabel plan di langkah 6 pada praktikum tersebut? Mengapa dibuat konstanta ?
+
+Jawaban :
+
+Variabel plan diperlukan sebagai penampung data utama yang akan ditampilkan dan dikelola pada layar PlanScreen. Penggunaan const pada saat inisialisasi Plan plan = const Plan(); memiliki tujuan teknis dalam optimasi Flutter
+
+3. Lakukan capture hasil dari Langkah 9 berupa GIF, kemudian jelaskan apa yang telah Anda buat!
+
+![](assets/img/prak1/output1.jpeg)
+
+4. Apa kegunaan method pada Langkah 11 dan 13 dalam lifecyle state ?
+
+Jawaban :
+
+Pasangan metode yang sangat penting untuk mengelola sumber daya (resources) aplikasi. initState() : tahap pertama dalam lifecycle setelah objek State dibuat dan dispose() : tahap terakhir dalam lifecycle sebelum objek State dihapus secara permanen dari memori.
