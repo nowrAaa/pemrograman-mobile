@@ -1,4 +1,4 @@
-# Laporan Praktikum #05 - Aplikasi Pertama dan Widget Dasar Flutter
+# Laporan Praktikum #07 - Plugin
 
 ## Identitas Mahasiswa
 
